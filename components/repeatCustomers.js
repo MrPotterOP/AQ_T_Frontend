@@ -23,6 +23,9 @@ const repeatCustomers = async (req, res) => {
     } else if (period === 'yearly') {
         dateFormat = '%Y';
         groupId = { $dateToString: { format: dateFormat, date: '$createdAt' } };
+    } else {
+        dateFormat = '%Y-%m';
+        groupId = { $dateToString: { format: dateFormat, date: '$createdAt' } };
     }
 
     const matchStage = {};
